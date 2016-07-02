@@ -1,0 +1,17 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+	<h1>Blog!</h1>
+	{% if blogs %}
+	<p>
+	{% for blog in blogs.items %}
+		<h2> <a href="{{ url_for('blogpost', title=blog.title) }}"> {{ blog.title }} </a> </h2>		
+		<li>{{ blog.body }}</li>
+	{% endfor %}
+	</p>
+	{% endif %}
+	{% if blogs.has_prev %}<a href="{{ url_for('blog', page=blogs.prev_num) }}"> &lt;&lt; Newer blogs</a>
+	{% else %}&lt;&lt; Newer blogs{% endif %} | 
+	{% if blogs.has_next %}<a href="{{ url_for('blog', page=blogs.next_num) }}">Older blogs &gt;&gt;</a>
+	{% else %}Older posts &gt;&gt;{% endif %}
+{% endblock %}

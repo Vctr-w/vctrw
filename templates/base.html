@@ -1,0 +1,27 @@
+<script src="/static/js/moment.min.js"></script>
+
+<html>
+  <head>
+    {% if title %}
+    <title>Vctr - {{ title }}</title>
+    {% else %}
+    <title>Vctr </title>
+    {% endif %}
+  </head>
+  <body>
+    <div>Vctr: <a href="/index">Home</a> <a href="/aboutme">About me</a> <a href="/blog">Blog</a> <a href="/photos">Photos</a></div>
+    <hr>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+			{% for message in messages %}
+				<li> {{ message }} </li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+    {% block content %}{% endblock %}
+  </body>
+</html>
+

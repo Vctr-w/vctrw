@@ -1,0 +1,12 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+
+	<h1>{{ title }}</h1>
+	<p>
+	{{ blog.body }}
+	</p>
+
+	{% include 'disqus.html' %}
+
+{% endblock %}
