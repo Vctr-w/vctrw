@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script src="/static/js/moment.min.js"></script>
 
 <html>
@@ -18,10 +19,93 @@
 				<li> {{ message }} </li>
 			{% endfor %}
 			</ul>
+=======
+<!--<script src="/static/js/moment.min.js"></script>-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="shortcut icon" href={{ url_for('static', filename="favicon.ico") }}>
+
+
+		{% if title %}
+			<title>Vctr - {{ title }}</title>
+		{% else %}
+			<title>Vctr </title>
+>>>>>>> db04442... Website ready to go
 		{% endif %}
 	{% endwith %}
 
+<<<<<<< HEAD
     {% block content %}{% endblock %}
   </body>
+=======
+		<!-- Import Bootstrap -->
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="/static/styles/base.css" rel="stylesheet">
+
+		{% include 'googleanalytics.html' %}
+
+	</head>
+	
+	<body>
+	
+	<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Vctr</a>
+				</div>				
+				<div class="collapse navbar-collapse" id="navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li {% if title == 'Home' %}class="active" {% endif %}><a href="/">Home</a></li>
+						<li {% if title == 'About me' %}class="active" {% endif %}><a href="/aboutme">About me</a></li>
+						<li {% if title == 'Blog' %}class="active" {% endif %}><a href="/blog">Blog</a></li>
+						<li {% if title == 'Gallery' %}class="active" {% endif %}><a href="/gallery">Gallery</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<p class="navbar-text" style="margin-top: 10px; margin-bottom: 0px;">						
+							 	<a href="https://au.linkedin.com/in/victor-wong-06561337"> <img src="/static/linkedin.png" alt="LinkedIn" title="LinkedIn" /></a>
+							</p>
+						</li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="base">
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						<ul>
+							{% for message in messages %}
+								<li> {{ message }} </li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				{% endwith %}
+
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="/static/js/bootstrap.min.js"></script>
+	</body>
+>>>>>>> db04442... Website ready to go
 </html>
 
